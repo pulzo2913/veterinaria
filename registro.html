@@ -1,0 +1,223 @@
+<?php 
+session_start();
+require("conexion.php");
+require("class/tablaUsuario.php");
+
+if(!empty($_POST['matricula']) AND !empty($_POST['contra']) ){
+	$matricula=$_POST['matricula'];
+	$contra=$_POST['contra'];
+
+	$con=mysql_query("SELECT * from USUARIOS
+		WHERE matricula='".$matricula."'
+		AND contra='".$contra."'
+		AND estatus='s'");
+
+		if($dato=mysql_fetch_array($con)){
+			$_SESSION['matricula']=$dato['matricula'];
+			$_SESSION['tipo']=$dato['tipo'];
+
+		if($dato['estatus']=='s' AND $dato['tipo']=='a'){
+			header('location:Admon/admon.php');
+					}else{
+						if($dato['estatus']=='s' AND $dato['tipo']=='u'){
+							header('location:Alumno/admon.php');
+
+						}
+
+					} 
+
+		}
+}
+
+ ?>
+
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="JavaScript" src="../Veterinaria/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="../Veterinaria/sammy-0.5.4.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<title>Registro| REGIS COMPU</title>
+<link href="../Veterinaria/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/animate.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/prettyPhoto.css" rel="stylesheet">
+    <link href="../Veterinaria/css/main.css" rel="stylesheet">
+    <link href="../Veterinaria/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../Veterinaria/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Veterinaria/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Veterinaria/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Veterinaria/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../Veterinaria/images/ico/apple-touch-icon-57-precomposed.png">
+  <script type="text/javascript">
+  $(document).ready(function(){ });
+        var ratPack = $.sammy(function() {
+          this.element_selector = '#contenido'; 
+		  	 
+			
+		this.get('#/Glosario', function(context) {
+ 			  $("#contenido").load('glosario.html');
+          });
+			
+		this.get('#/Consultas', function(context) {
+ 			  $("#contenido").load('consultas.html');
+          });
+		
+		this.get('#/formulario', function(context) {
+			  $("#contenido").load('registro.html');
+          });
+		
+		
+  		  			  
+        });
+        $(function() {
+          ratPack.run('#/inicio');
+        });
+    </script>
+
+</head>
+
+<body class="homepage">
+
+    <header id="header">
+     
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../Veterinaria/index."><img src="../Veterinaria/images/icono.jpg" alt width="100"></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+        			 <li><a href="../Veterinaria/index.html">Inicio</a></li>
+                      
+                       <li><a href="consultas.html">Consultas</a></li>
+         <li class="active"><a href="registro.html">Registro | Login</a></li>
+						 <?php
+						 echo $_SESSION["idmiembro"];
+						 ?>
+                         
+                        
+                   
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		
+    </header><!--/header-->
+<div id="contenido">  <!-- CONTENIDO DIV CLASE UPVM-->
+     
+    <section id="main-slider" class="no-margin">
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+            </ol>
+	<title> Formulario De Registro</title>
+	<style>
+		.centrar{
+			margin: 0 auto;
+			max-width: 300px;
+			text-align: center;
+		}
+			
+		.forma-login{
+			border: 2px solid #a5a5a5;
+		}
+
+	</style>
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+</head>
+<body>
+<div class="centrar">
+<form action="" method="POST" class="forma-login">
+	<legend><strong>Iniciar Sesion</strong></legend> <br>
+	<label>Usuario:</label>
+	<input type="text" placeholder="Introduce Usuario" name="Usuario">
+
+	<br>
+
+	<label>Password:</label>
+	<input type="password" placeholder="Introduce Password" name="contra">
+	<br>
+	
+	<button class="btn btn-primary">Iniciar Sesion</button>
+	<br><br>
+	<center>
+		<p>Inscribete</p>
+		<a href="Registro.php" class="btn btn-success" role="button"> Registrarse </a>
+
+	</center>
+
+</form>
+</div>
+
+
+
+
+
+
+<div class="container-fluid">
+	<div id="Registrar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="ModalRegistro" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> X </button>
+		<h3>Registro De Usuarios</h3>
+	</div>
+	<div class="modal-body">
+		<form action="" method="post" id="formaRegistro" name="formaRegistro">
+			<strong>Matricula:</strong>
+			<input type="text" name="RegPassword" id="RegPassword" maxlength="10" autocomplete="off" autofocus required pattern="[1][0-9]{9}">
+			<br>
+			<strong>Nombre:</strong>
+			<input type="text" name="RegNombre" id="RegNombre" maxlength="50" autocomplete="off" required >
+			<br>
+			<strong>Contraseña:</strong>
+			<input type="text" name="RegContra" id="RegContra" maxlength="8" autocomplete="off" required >
+
+		
+	</div>
+	<div class="modal-footer">
+		<input type="submit" class="btn btn-success" value="Registrar Usuario" name="botonRegistro">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+		</form>
+	</div>
+	</div>
+</div>
+
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/validaLetras.js"></script>
+
+<script>
+	$(function(){
+		$("#RegMatricula").validCampoFranz("0123456789");
+
+		$("#RegNombre").keyup(function(){
+			var a= $("#RegNombre").val().toUpperCase();
+			$("#RegNombre").val(a);
+
+		});
+
+		$("#RegNombre").validCampoFranz("abcdefghijklmnñopqrstuvwxyz");
+
+
+	});
+
+</script>
+
+
+</body>
+</HTML>

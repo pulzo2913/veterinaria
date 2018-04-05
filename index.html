@@ -1,0 +1,255 @@
+<?php
+	session_start();
+	?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <script language="JavaScript" src="../Veterinaria/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="../Veterinaria/sammy-0.5.4.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Inicio| BOLAWEB</title>
+	
+	<!-- core CSS -->
+    <link href="../Veterinaria/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/animate.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/prettyPhoto.css" rel="stylesheet">
+    <link href="../Veterinaria/css/main.css" rel="stylesheet">
+    <link href="../Veterinaria/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="../Veterinaria/images/ico/iconoo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Veterinaria/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Veterinaria/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Veterinaria/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../Veterinaria/images/ico/apple-touch-icon-57-precomposed.png">
+  <script type="text/javascript">
+  $(document).ready(function(){ });
+        var ratPack = $.sammy(function() {
+          this.element_selector = '#contenido'; 
+		  	 
+			
+		this.get('#/Glosario', function(context) {
+ 			  $("#contenido").load('glosario.html');
+          });
+			
+		this.get('#/Consultas', function(context) {
+ 			  $("#contenido").load('consultas.html');
+          });
+		
+		this.get('#/formulario', function(context) {
+			  $("#contenido").load('registro.html');
+          });
+		
+		
+  		  			  
+        });
+        $(function() {
+          ratPack.run('#/inicio');
+        });
+    </script>
+  
+  
+</head><!--/head-->
+
+<body class="homepage">
+
+    <header id="header">
+        <!--AUDIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
+
+     <audio autoplay src="C:\Users\NeNe.BoLa-PC\Desktop\cosas escritorio\BOLA WEB\cancion.mp3"></audio>-->
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../Veterinaria/index.html"><img src="../Veterinaria/images/icono.jpg" alt width="70" ></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+        			 <li><strong><a href="../Veterinaria/index.html">INICIO</a></strong></li>
+                       <li><a href="glosario.html">Productos</a></li>
+                       <li><strong><a href="consultar.html">CONSULTAR</a></strong></li>
+                       <li><a href="C:/Users/NeNe.BoLa-PC/Desktop/cosas%20escritorio/BOLA%20WEB/contacto1.html">¿Quienes Somos?</a></li>
+         <li class="active"><a href="registro.html">Registro | Login</a></li>
+                <a id="redes"target="blank" href="https://www.facebook.com/bola0312"><img src="C:\Users\NeNe.BoLa-PC\Desktop\Veterinaria\images\slider\facebook.png" alt width="25"></a>
+    
+         <a id="twitter"target="blank" href="C:\Users\NeNe.BoLa-PC\Desktop\Veterinaria\images\slider\contacto.jpg"><img src="C:\Users\NeNe.BoLa-PC\Desktop\Veterinaria\images\slider\whats.jpg" alt width="25"></a>
+    
+    <a target="blank" href="https://www.instagram.com/ricardo_bola/"><img src="C:\Users\NeNe.BoLa-PC\Desktop\Veterinaria\images\slider\instagram.jpg" alt width="25"></a>
+
+						 <?php
+						 echo $_SESSION["idmiembro"];
+						 ?>
+                         
+                        
+                   
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		<style>
+        header{
+        border-top:4px solid #FF8920;
+
+
+    }
+    li{
+      margin-left: 75px;  
+    }
+    .navbar-brand{
+        margin-right: 200px;  
+        margin-left: :200   px;
+    }
+    nav{
+
+    }
+        #redes{
+
+            margin-left: 20px;
+            margin-right: 20px;}
+            #twitter{
+                 margin-right: 20px;
+                }            }
+         </style>
+    </header><!--/header-->
+    
+
+    
+<p>
+  <MARQUEE BGCOLOR="orange">
+   "Conoce nuestras promociones a traves de nuestras redes sociales o comunicate con nosotros ( (044) 55-44-58-02-99 ) y se parte de esta gran comunidad"
+  </MARQUEE>
+</p> 
+     <div id="contenido">  <!-- CONTENIDO DIV CLASE UPVM-->
+     <nav>
+
+            
+     </nav>
+
+    <section id="main-slider" class="no-margin" >
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+                <div class="item active" style="background-image: url(../Veterinaria/images/slider/)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Aqui encontraras las mejores 
+                                        opciones para la compra de tus computadoras!</h1>
+                                    <h2 class="animation animated-item-2">Por el amor a la Tecnologia</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="../Veterinaria/images/slider/o1.jpg" alt width="500px" class="img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(../Veterinaria/images/slider/.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Descubre tu mejor opcion al mejor precio</h1>
+                                    <h2 class="animation animated-item-2">Disfruta cada momento de tu computadora</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="../Veterinaria/images/slider/o2.jpeg" class="img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(../Veterinaria/images/slider/fon.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Ejercitate diario en compañia de tu nueva laptop</h1>
+                                    <h2 class="animation animated-item-2">las mas nuevas a tu alcance</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="../Veterinaria/images/slider/5.jpg" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+<a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="fa fa-chevron-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="fa fa-chevron-right"></i>
+        </a>
+        
+
+    </section>
+
+            <article>
+
+
+
+
+
+
+
+            </article>
+	</div>
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+        <a href="../Veterinaria/privacidad.html">Terminos de uso</a> <br><br>
+        <a href="../Veterinaria/aviso.pdf">Aviso de privacidad y politicas</a>   <br> <br>   
+        <a href="../Veterinaria/aviso2.pdf">Aviso de privacidad de la tienda </a>
+        </div>
+    </footer><!--/#footer-->
+
+  <!--UPVM-->
+   
+   <!--FIN-->
+    <script src="../Veterinaria/js/jquery.js"></script>
+    <script src="../Veterinaria/js/bootstrap.min.js"></script>
+    <script src="../Veterinaria/js/jquery.prettyPhoto.js"></script>
+    <script src="../Veterinaria/js/jquery.isotope.min.js"></script>
+    <script src="../Veterinaria/js/main.js"></script>
+    <script src="../Veterinaria/js/wow.min.js"></script>
+</body>
+</html>

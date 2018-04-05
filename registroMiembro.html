@@ -1,0 +1,147 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="JavaScript" src="../Veterinaria/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="../Veterinaria/sammy-0.5.4.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<title>Registro| CARE PET</title>
+<link href="../Veterinaria/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/animate.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/prettyPhoto.css" rel="stylesheet">
+    <link href="../Veterinaria/css/main.css" rel="stylesheet">
+    <link href="../Veterinaria/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../Veterinaria/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Veterinaria/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Veterinaria/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Veterinaria/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../Veterinaria/images/ico/apple-touch-icon-57-precomposed.png">
+  <script type="text/javascript">
+  $(document).ready(function(){ });
+        var ratPack = $.sammy(function() {
+          this.element_selector = '#contenido'; 
+         
+      
+    this.get('#/Glosario', function(context) {
+        $("#contenido").load('glosario.html');
+          });
+      
+    this.get('#/Consultas', function(context) {
+        $("#contenido").load('consultas.html');
+          });
+    
+    this.get('#/formulario', function(context) {
+        $("#contenido").load('registro.html');
+          });
+    
+    
+                
+        });
+        $(function() {
+          ratPack.run('#/inicio');
+        });
+
+    </script>
+    
+
+<body>
+    <form action="datos.php" method="GET"><br><br><br>
+
+    <fieldset id="fld_datosUsuario">
+    <label for="idUsurio">IdUsuario</label><br>
+     <input type="text" id="IdUsuario" name="IdUsuario" placeholder="escribe tu usuario"><br>
+    <label for="idperfil">IdPerfil</label><br>
+     <input type="text" id="IdPerfil" name="idperfil" placeholder="escribe tu IdPerfil"><br>
+    <label for="nombre">Nombre</label><br>
+    <input type="text" id="nombre" name="nombre" placeholder="escribe tu nombre"><br>
+    <label for="usuario">Usuario</label><br>
+     <input type="text" id="usuario" name="usuario" placeholder="escribe tu usuario"><br>
+    <label for="contrasena">Contrasena</label><br>
+    <input type="password" zise="8" maxlength="8"><br>
+
+   
+     
+    <label for="email">Email</label><br>
+    <input type="email" ><br>
+   
+    <label for="FechaConsulta">Fecha de Consulta</label>
+    <input type="date" >
+      
+    </fieldset>
+   
+            <fieldset>
+                <select>
+                    <optgroup>
+                        <option value="">
+                    </optgroup>
+                </select>
+            </fieldset>
+        </select>
+
+    </fieldset>
+    <fieldset>
+      <legend>otros</legend>
+      <label>Comentarios</label>
+      <textarea cols="10" rows="2"></textarea><br>
+        <input type="submit" value="Registrar" name="btnRegistrar" ><br><br>
+      
+    </fieldset>
+      
+    </form>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Generar PDF's con PHP</title>
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    </head>
+    <body>
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Crear un PDF</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            Solo en Codigo Facilito
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+              <form action="generar/generar-pdf.php">
+                  <input type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="Crear PDF">
+              </form>
+          </div>
+          <div class="mdl-card__menu">
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+              <i class="material-icons">folder</i>
+            </button>
+          </div>
+        </div>
+    </body>
+    </html>
+
+<?
+  $idmiembro=$_POST[idmiembro];
+  $password=$_POST[password];
+  $nombre=$_POST[nombre];
+  $apellidos=$_POST[apellidos];
+  $correo=$_POST[correo];
+  $ciudad=$_POST[ciudad];
+  $nivel=$_POST[nivel];
+
+
+  $conexion=mysql_connect("localhost","root","12345678") or die("Error en la conexion");
+  mysql_select_db("veterinaria",$conexion) or die("Error en la base de datos");
+  $sql="insert into miembros(idmiembro,password,nombre, apellidos, correo, ciudad) 
+  values('$idmiembro','$password','$nombre','$apellidos','$correo', '$ciudad' )";
+  
+  mysql_query($sql, $conexion) or die("Error de SQL, checa la Sintaxis");
+  
+  mysql_close($conexion);
+  echo "ok";
+?>
+</head>
+</html>

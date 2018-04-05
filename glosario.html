@@ -1,0 +1,142 @@
+<?php
+	session_start();
+	?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="JavaScript" src="../Veterinaria/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="../Veterinaria/sammy-0.5.4.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<title>Glosario| BOLA WEB</title>
+<link href="../Veterinaria/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/animate.min.css" rel="stylesheet">
+    <link href="../Veterinaria/css/prettyPhoto.css" rel="stylesheet">
+    <link href="../Veterinaria/css/main.css" rel="stylesheet">
+    <link href="../Veterinaria/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../Veterinaria/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Veterinaria/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Veterinaria/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Veterinaria/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../Veterinaria/images/ico/apple-touch-icon-57-precomposed.png">
+  <script type="text/javascript">
+  $(document).ready(function(){ });
+        var ratPack = $.sammy(function() {
+          this.element_selector = '#contenido'; 
+		  	 
+			
+		this.get('#/Glosario', function(context) {
+ 			  $("#contenido").load('glosario.html');
+          });
+			
+		this.get('#/Consultas', function(context) {
+ 			  $("#contenido").load('consultas.html');
+          });
+		
+		this.get('#/formulario', function(context) {
+	  $("#contenido").load('registroMiembro.html');
+		
+		
+  		  			  
+        });
+        $(function() {
+          ratPack.run('#/inicio');
+        });
+    </script>
+
+</head>
+
+<body class="homepage">
+
+    <header id="header">
+     
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="C:/Users/NeNe.BoLa-PC/Desktop/Veterinaria/index.html"><img src="../Veterinaria/images/icono.jpg" alt width="100"></a>
+                    
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+        			 <li><strong><a href="../Veterinaria/index.html">INICIO</a></strong></li>
+                       <li><a href="glosario.html">Productos</a></li>
+                       <li><strong><a href="consultas.html">CONSULTAS</a></strong></li>
+         <li class="active"><a href="registro.html">Registro | Login</a></li>
+         <a id="redes"target="blank" href="https://www.facebook.com/bola0312"><img src="C:\Users\NeNe.BoLa-PC\Desktop\cosas escritorio\BOLA WEB\facebook.png" alt width="25"></a>
+            <a id="twitter"target="blank" href="https://www.twitter.com"><img src="C:\Users\NeNe.BoLa-PC\Desktop\cosas escritorio\BOLA WEB\twi.png" alt width="25"></a>
+            <a target="blank" href="https://www.instagram.com/ricardo_bola/"><img src="C:\Users\NeNe.BoLa-PC\Desktop\cosas escritorio\BOLA WEB\instagram.jpg" alt width="25"></a>
+						 <?php
+						 echo $_SESSION["idmiembro"];
+						 ?>
+                         
+                        
+                   
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		
+    </header><!--/header-->
+<div id="contenido">  <!-- CONTENIDO DIV CLASE UPVM-->
+     
+    <section id="main-slider" class="no-margin">
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+                <div class="item active" style="background-image: url(../Veterinaria/images/slider/ffff.jpg )" alt width="100">
+
+
+                     
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Bienvenidos por favor antes de hacer una compra debes registrarte primero.</h1>
+                                    <h2 class="animation animated-item-2">Para registrarte haz click en el boton de abajo</h2>
+                                    <a class="btn-slide animation animated-item-3" href="Registro.php">R E G I S T R A T E</a>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="../Veterinaria/images/slider/2.jpg" class="img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+   <style>
+   #redes{
+
+            margin-left: 20px;
+            margin-right: 20px;}
+            #twitter{
+                 margin-right: 20px;
+                }            }
+</style>
+    <script src="../Veterinaria/js/jquery.js"></script>
+    <script src="../Veterinaria/js/bootstrap.min.js"></script>
+    <script src="../Veterinaria/js/jquery.prettyPhoto.js"></script>
+    <script src="../Veterinaria/js/jquery.isotope.min.js"></script>
+    <script src="../Veterinaria/js/main.js"></script>
+    <script src="../Veterinaria/js/wow.min.js"></script>
+</body>
+</html>
